@@ -1,0 +1,63 @@
+<!-- public/id.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Pet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff7f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      color: #1f70c1;
+      margin-bottom: 10px;
+    }
+    .info {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="{{imagePath}}" alt="Pet">
+    <h1>{{petName}}</h1>
+    <div class="info">👤 {{ownerName}}</div>
+    <div class="info">📞 {{phone}}</div>
+    <div class="info">✉️ {{social}}</div>
+  </div>
+</body>
+</html>

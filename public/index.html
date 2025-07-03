@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluffyLook - Pet Grooming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #ffe9e2;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+      gap: 60px;
+      padding: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .hero-text,
+    .hero-image,
+    .booking-box {
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      margin-bottom: 20px;
+    }
+
+    .checklist {
+      margin-top: 20px;
+    }
+
+    .checklist div {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .checklist div::before {
+      content: "\2713";
+      color: #4097f3;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .booking-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .booking-box input,
+    .booking-box input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .booking-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #f15c5c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-text,
+      .hero-image {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero-text">
+      <h4 style="color:#f15c5c">Welcome to FluffyLook</h4>
+      <h1>Professional Pets Grooming</h1>
+      <p>FluffyLook provides high-quality grooming services for pets of all breeds and ages.</p>
+      <div class="checklist">
+        <div>Personalized service with free consultations</div>
+        <div>100% satisfaction guarantee</div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="pet.png" alt="Pet">
+    </div>
+
+    <form class="booking-box" action="/submit" method="POST" enctype="multipart/form-data" onsubmit="handleSubmit(event)">
+      <p><strong>Book appointment or check prices</strong></p>
+      <p style="font-size: 14px; margin-bottom: 15px; color: #555;">We are always happy to offer the best grooming services for your pet at any time.</p>
+      <input type="text" name="petName" placeholder="Pet's Name" required>
+      <input type="text" name="ownerName" placeholder="Owner's Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="social" placeholder="Social Media Profile">
+      <input type="file" name="petImage" accept="image/*">
+      <button type="submit">Book Now</button>
+    </form>
+  </div>
+
+  <script>
+    async function handleSubmit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const text = await response.text();
+        alert(text);
+        form.reset();
+      } catch (error) {
+        alert('Ocorreu um erro. Tente novamente.');
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
