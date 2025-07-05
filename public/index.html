@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluffyLook - Pet Grooming</title>
+  <title>PalPet</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -116,12 +116,12 @@
 <body>
   <div class="container">
     <div class="hero-text">
-      <h4 style="color:#f15c5c">Welcome to FluffyLook</h4>
-      <h1>Professional Pets Grooming</h1>
-      <p>FluffyLook provides high-quality grooming services for pets of all breeds and ages.</p>
+      <h4 style="color:#f15c5c">Bem-vindo ao PalPet</h4>
+      <h1>Proteja seu Pet</h1>
+      <p>O palpet oferece uma maneira barata e simples de ajudar a encontrar seu pet caso ele se perca.</p>
       <div class="checklist">
-        <div>Personalized service with free consultations</div>
-        <div>100% satisfaction guarantee</div>
+        <div>Oferece uma coleira com QR code, dessa forma seu pet estará sempre identificado</div>
+        <div>Uma maneira fácil e simples de localizá-lo</div>
       </div>
     </div>
 
@@ -130,14 +130,14 @@
     </div>
 
     <form class="booking-box" action="/submit" method="POST" enctype="multipart/form-data" onsubmit="handleSubmit(event)">
-      <p><strong>Book appointment or check prices</strong></p>
-      <p style="font-size: 14px; margin-bottom: 15px; color: #555;">We are always happy to offer the best grooming services for your pet at any time.</p>
-      <input type="text" name="petName" placeholder="Pet's Name" required>
-      <input type="text" name="ownerName" placeholder="Owner's Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <input type="text" name="social" placeholder="Social Media Profile">
-      <input type="file" name="petImage" accept="image/*">
-      <button type="submit">Book Now</button>
+      <p><strong>Preencha as informações</strong></p>
+      <p style="font-size: 14px; margin-bottom: 15px; color: #555;">Preencha as informações a seguir para criar o qr-code</p>
+      <input type="text" name="petName" placeholder="Nome do Pet" required>
+      <input type="text" name="ownerName" placeholder="Nome do dono" required>
+      <input type="tel" name="phone" placeholder="Número de telefone" required>
+      <input type="text" name="social" placeholder="Rede social">
+      <input type="file" name="Imagem do Pet" accept="image/*">
+      <button type="submit">Enviar</button>
     </form>
   </div>
 

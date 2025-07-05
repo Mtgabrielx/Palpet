@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const QRCode = require('qrcode');
 
 const app = express();
-const PORT = 3000;
+const PORT = 80;
 const USERS_DIR = path.join(__dirname, 'usuarios');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 
@@ -71,7 +71,7 @@ app.post('/submit', upload.single('petImage'), async (req, res) => {
   fs.writeFileSync(path.join(USERS_DIR, `${id}.json`), JSON.stringify(userData, null, 2));
 
   // Gerar QR Code
-  const qrLink = `http://localhost:${PORT}/${token}`;
+  const qrLink = `http://palpet.xyz:${PORT}/${token}`;
   const qrPath = path.join(USERS_DIR, 'token', `${id}.png`);
   await QRCode.toFile(qrPath, qrLink);
 
